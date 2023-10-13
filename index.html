@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* #container {
+            width: 1000px;
+            height: 200px;
+            margin: 20px;
+        
+        } */
+        #pacman {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="container"> -->
+        <img id="pacman" src="pac man/PacMan1.jpeg">
+    <!-- </div> -->
+
+    <script>
+        // var container = document.getElementById("container");
+        var pacman1 = document.getElementById("pacman");
+        const pacmanimages1=["PacMan1.jpeg","PacMan2.jpeg"]
+        const pacmanimages2=["PacMan3.jpeg","PacMan4.jpeg"]
+        var current_index=0;
+        var position = 0;
+        var direction = 1;
+
+        function move() {
+            position += 20* direction;
+
+            if (position < 0 + 20 || position > window.innerWidth-200) {
+                direction*=-1;
+            }
+
+            if (direction===1) {
+                pacman.src=pacmanimages1[current_index];
+                current_index=(current_index + 1) % pacmanimages1.length;
+                setTimeout(move,100);
+                    
+            } else {
+                pacman.src=pacmanimages2[current_index];
+                current_index=(current_index+1) % pacmanimages2.length;
+            setTimeout(move,100);
+
+
+            
+            }
+
+            pacman1.style.left = position + 'px';
+        }
+        move()
+       
+    </script>
+</body>
+</html>
